@@ -11,7 +11,7 @@ O objetivo deste repositório é descrever um padrão de desenvolvimento de cód
 
 O Design Atômico é uma metodologia de desenvolvimento de estilos css onde a estrutura da página ou site é encarada de forma semelhante ao conceito químico de átomos e moléculas. Ou seja, componentes menores como botões por exemplo, são vistos como átomos dentro da página, enquanto items maiores como o rodapé do site, são tratados como organismos.
 
-Dessa forma os elementos mais complexos (páginas) são compostos por unidades menores, (templates) até chegarmos nas menores partes da hierarquia (átomos).
+Dessa forma os elementos mais complexos (páginas) são compostos por unidades menores (templates), até chegarmos nas menores partes da hierarquia (átomos).
 
 <p style="background-color: #fff; padding: 25px;"><img src="./paginas.png" alt="Design Atômico - Esquema" title="Design Atômico"></p>
 
@@ -125,7 +125,7 @@ t-brand {
 ```
 
 ### **Páginas**
-As páginas são o último nível da hierarquia. Nelas temos estilos que abrangem comportamentos específicos de um determinado layout, uma vez que os demais estilos já foram determinados pelas suas outras partes.
+As páginas são o último nível da hierarquia. Nelas temos estilos que abrangem comportamentos específicos de um determinado layout, uma vez que os demais estilos já foram determinados pelas suas partes.
 
 **Exemplo**
 
@@ -143,58 +143,76 @@ p-main-brand {
 }
 ```
 
-### **Escopos de componetes**
-lorem ipsum
+---
+
+## Manipulando a estrutura
+
+Um ponto importante para ser considerado a respeito do Design Atômico é o escopo dos seus componentes e como estilizá-los da melhor forma possível para que eles realmente tenham as características recomendadas na estrutura.
+
+### **Adicionando ou sobescrevendo regras**
+Em casos em que um componente filho (átomo) precisa de ser estilizado segundo o seu componente pai (molécula) a prática adotada é adicionar uma classe de marcação do elemento pai no filho.
+
 
 **Exemplo**
+> HTML
 ```
-p-about {
+<div class="m-holder">
+  <button class="a-btn m-holder-btn">Botão 1</button>
+</div>
+
+<div class="m-holder">
+  <button class="a-btn">Botão 2</button>
+</div>
+```
+
+> CSS
+```
+a-btn {
+  font-size: 12px;
+  text-align: center;
+  background-color: #ff0;
+}
+
+m-holder {
   background-color: #00f;
 }
+
+m-holder-btn {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 200px;
+}
+
 ```
+
+Com essa prática o Design Atômico se torma muito mais eficiente, pois regras específicas para um átomo em uma molécula por exemplo, não vão interferir no comportamento do mesmo átomo em outros lugares em que for utilizado. Isso também deve ser adotados para os outros tipos de elementos (moléculas, organismos, templates e páginas).
+
+
+### **Átomos Virtuais**
+
 
 ---
 
+
 ## Nomenclatura de classes
+
+### **Nomenclatura**
+Para manter um padrão de estilização dos componetes da página ou site, o ideal é priorizar o uso de classes para estilizar os elementos e não outros seletores.
+
+O nome das classes deve sempre buscar elicitar o que o elemento em questão representa dentro da estrutura da página e não o seu conteúdo.
+
 
 ### **Prefixos**
 lorem ipsum
 
-**Exemplo**
-```
-p-about {
-  background-color: #00f;
-}
-```
-
 ### **Abreviações**
 lorem ipsum
 
-**Exemplo**
-```
-p-about {
-  background-color: #00f;
-}
-```
 
 ### **Modificadores**
 lorem ipsum
 
-**Exemplo**
-```
-p-about {
-  background-color: #00f;
-}
-```
 ---
 
 ## Boas práticas
-lorem ipsum
-
-**Exemplo**
-```
-p-about {
-  background-color: #00f;
-}
-```
-
