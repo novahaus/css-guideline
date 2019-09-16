@@ -186,31 +186,108 @@ m-holder-btn {
 
 ```
 
-Com essa prática o Design Atômico se torma muito mais eficiente, pois regras específicas para um átomo em uma molécula por exemplo, não vão interferir no comportamento do mesmo átomo em outros lugares em que for utilizado. Isso também deve ser adotados para os outros tipos de elementos (moléculas, organismos, templates e páginas).
+Com essa prática o Design Atômico se torma mais eficiente, pois regras específicas para um átomo em uma molécula por exemplo, não vão interferir no comportamento do mesmo átomo em outros lugares em que for utilizado. Isso também deve ser adotados para os outros tipos de elementos (moléculas, organismos, templates e páginas).
 
 
 ### **Átomos Virtuais**
 
+Átomos virtuais são aqueles que apesar de possuirem o comportamento de um átomo estão diretamente ligados á uma molécula e não existiriam sem ela. Neste caso específico os estilos desse átomo ficam na sua molécula. O item de um menu único de navegação por exemplo possui essa característica.
 
 ---
 
 
 ## Nomenclatura de classes
 
-### **Nomenclatura**
+### **Lógica de nomenclatura**
 Para manter um padrão de estilização dos componetes da página ou site, o ideal é priorizar o uso de classes para estilizar os elementos e não outros seletores.
 
-O nome das classes deve sempre buscar elicitar o que o elemento em questão representa dentro da estrutura da página e não o seu conteúdo.
+O nome das classes deve sempre buscar elicitar o que o elemento em questão representa dentro da estrutura da página e não o seu conteúdo. Por exemplo, se houver um elemento div com um banner de um refrigerante, o ideal é nomeá-lo de acordo com seu papel na estrutura e não seu conteúdo (refrigerante). Um possível nome para este componente então seria `m-banner` que está relaciionado ao seu papel, diferente de `m-soda` que se refere ao conteúdo.
 
+### **Linguagem**
+Os nomes dos seletores sempre devem estar na língua inglesa.
+
+### **Dashed Case**
+Quando o nome de um componente é composto, utiliza-se o padrão `dashed case` para separar os nomes.
+
+**Exemplos**
+```
+  .a-main-link
+  .m-list-item
+  .o-footer-conteiner
+```
 
 ### **Prefixos**
-lorem ipsum
+Para ser evitado a sobescrita de regras de estilos de maneira involuntária os seguintes prefixos são utilizados para cada tipo de componente:
 
-### **Abreviações**
-lorem ipsum
+- Átomos: `a-`
+```
+  .a-atom-name ...
+```
 
+- Moléculas: `m-`
+```
+  .m-molecule-name ...
+```
+
+- Organismos: `o-`
+```
+  .o-organism-name ...
+```
+
+- Templates: `t-`
+```
+  .t-template-name ...
+```
+
+- Páginas: `p-`
+```
+  .p-page-name ...
+```
 
 ### **Modificadores**
+Quando for necessário criar uma variação de estilos para um determinado elemento o padrão utilizado é adiconar o nome do classe modificadora juntamente com o nome da classe do elemento que vai ser modificado.
+
+**Exemplo**
+
+> HTML
+```
+<div class="m-grid">
+  <p class="m-grid-text">Lorem ipsum</p>
+</div>
+<div class="m-grid active">
+  <p class="m-grid-text">Lorem ipsum</p>
+</div>
+```
+
+> SASS, SCSS e Stylus 
+```
+.m-grid {
+  display: none;
+  width: 500px;
+  height: 250px;
+  background-color: #f00;
+
+  &.active {
+    display: block;
+  }
+}
+
+```
+> CSS
+```
+.m-grid {
+  display: none;
+  width: 500px;
+  height: 250px;
+  background-color: #f00;
+}
+
+.m-grid.active {
+  display: block;
+}
+```
+
+### **Abreviações**
 lorem ipsum
 
 ---
