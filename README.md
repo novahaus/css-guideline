@@ -67,7 +67,7 @@ m-list-item {
 ```
 
 ### **Organismos**
-Os Organismos assim como as moléculas são compostos por suas partes menores (átomos e moléculas). Esses elementos de forma geral já são capazes de trazer uma informação ou funcionaidade completa. Alguns exemplos são o rodapé, cabeçalho e artigos;
+Os Organismos assim como as moléculas são compostos por suas partes menores (átomos e moléculas). Esses elementos de forma geral, já são capazes de trazer uma informação ou funcionaidade completa. Alguns exemplos são o rodapé, cabeçalho e artigos;
 
 **Exemplo**
 
@@ -103,7 +103,7 @@ o-footer {
 ```
 
 ### **Templates**
-Os templates são componentes que estilizam características gerais, de maneria que as estruturas das páginas possam ser reaproveitadas, ou seja, uma espécie de "esqueleto" do layout.
+Os templates são componentes que estilizam características gerais de maneria que as estruturas das páginas possam ser reaproveitadas, ou seja, uma espécie de "esqueleto" do layout.
 
 **Exemplo**
 
@@ -186,13 +186,40 @@ m-holder-btn {
 
 ```
 
-Com essa prática o Design Atômico se torma mais eficiente, pois regras específicas para um átomo em uma molécula por exemplo, não vão interferir no comportamento do mesmo átomo em outros lugares em que for utilizado. Isso também deve ser adotados para os outros tipos de elementos (moléculas, organismos, templates e páginas).
+Com essa prática o Design Atômico se torma mais eficiente, pois regras específicas para um átomo em uma molécula por exemplo, não vão interferir no comportamento do mesmo átomo em outros lugares em que for utilizado. Isso também deve ser adotado para os outros tipos de elementos (moléculas, organismos, templates e páginas).
 
 
 ### **Átomos Virtuais**
 
-Átomos virtuais são aqueles que apesar de possuirem o comportamento de um átomo estão diretamente ligados á uma molécula e não existiriam sem ela. Neste caso específico os estilos desse átomo ficam na sua molécula. O item de um menu único de navegação por exemplo possui essa característica.
+Átomos virtuais são aqueles que apesar de possuirem o comportamento de um átomo estão diretamente ligados á uma molécula e não existiriam sem ela. Neste caso específico os estilos desse átomo ficam na sua molécula. O item de um menu único de navegação por exemplo, possui essa característica.
 
+
+**Exemplo**
+
+> HTML
+```
+<ul class="m-list">
+  <li class="m-list-item">
+    <a class="a-link">Item 1</a>
+  </li>
+  <li class="m-list-item">
+    <a class="a-link">Item 2</a>
+  </li>
+</ul>
+```
+
+> CSS
+```
+.m-list {
+  list-style: none;
+}
+
+.m-list-item {
+  padding: 10px;
+}
+```
+
+* `m-list-item` neste caso pode ser classificado como um átomo virtual, pois não existiria sem o seu elemento pai (`m-list`).
 ---
 
 
@@ -201,7 +228,7 @@ Com essa prática o Design Atômico se torma mais eficiente, pois regras especí
 ### **Lógica de nomenclatura**
 Para manter um padrão de estilização dos componetes da página ou site, o ideal é priorizar o uso de classes para estilizar os elementos e não outros seletores.
 
-O nome das classes deve sempre buscar elicitar o que o elemento em questão representa dentro da estrutura da página e não o seu conteúdo. Por exemplo, se houver um elemento div com um banner de um refrigerante, o ideal é nomeá-lo de acordo com seu papel na estrutura e não seu conteúdo (refrigerante). Um possível nome para este componente então seria `m-banner` que está relaciionado ao seu papel, diferente de `m-soda` que se refere ao conteúdo.
+O nome das classes deve sempre buscar elicitar o que o elemento em questão representa dentro da estrutura da página e não o seu conteúdo. Por exemplo, se houver um elemento `div` com um banner de um refrigerante, o ideal é nomeá-lo de acordo com seu papel na estrutura e não seu conteúdo (refrigerante). Um possível nome para este componente então seria `m-banner` que está relaciionado ao seu papel, diferente de `m-soda` que se refere ao conteúdo.
 
 ### **Linguagem**
 Os nomes dos seletores sempre devem estar na língua inglesa.
@@ -217,7 +244,7 @@ Quando o nome de um componente é composto, utiliza-se o padrão `dashed case` p
 ```
 
 ### **Prefixos**
-Para ser evitado a sobescrita de regras de estilos de maneira involuntária os seguintes prefixos são utilizados para cada tipo de componente:
+Para ser evitado a sobescrita de regras de estilos de maneira involuntária, os seguintes prefixos são utilizados para cada tipo de componente:
 
 - Átomos: `a-`
 ```
@@ -245,7 +272,7 @@ Para ser evitado a sobescrita de regras de estilos de maneira involuntária os s
 ```
 
 ### **Modificadores**
-Quando for necessário criar uma variação de estilos para um determinado elemento o padrão utilizado é adiconar o nome do classe modificadora juntamente com o nome da classe do elemento que vai ser modificado.
+Quando for necessário criar uma variação de estilos para um determinado elemento, o padrão utilizado é adicionar o nome da classe modificadora juntamente a classe do elemento que vai ser modificado.
 
 **Exemplo**
 
@@ -288,8 +315,28 @@ Quando for necessário criar uma variação de estilos para um determinado eleme
 ```
 
 ### **Abreviações**
-lorem ipsum
 
+No desenvolvimento dos estilos dos componentes é interessante maximizar o uso de nomes curtos e abreviações nos seletores CSS, para que dessa maneira a legibilidade e também performance do código sejam aperfeiçoadas. 
+
+**Exemplo**
+
+> HTML
+```
+<div class="m-banner-hld">
+  /* Content */
+</div>
+```
+
+> CSS
+```
+.m-banner-hld {
+  width: 500px;
+}
+```
+
+* `hld` por exemplo, pode ser uma abreviação de "holder";
+* Abreviações devem sempre ter 3 caracteres;
+* No caso das abreviações, o ideal é que exista um controle das nomeclaturas.
 ---
 
 ## Boas práticas
