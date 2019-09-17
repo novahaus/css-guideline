@@ -1,9 +1,6 @@
-# css-guideline #
-A guideline for architecture and naming convetion for CSS
-
 ## Objetivo
 
-O objetivo deste repositório é descrever um padrão de desenvolvimento de código `CSS` cujo o processo de estilização fique mais simples e produtivo, mantendo as boas práticas e performance na aplicação.
+O objetivo deste guia é descrever um padrão de desenvolvimento de código `CSS` cujo o processo de estilização fique mais simples e produtivo, mantendo a organização, boas práticas e performance na aplicação.
 
 ---
 
@@ -11,12 +8,12 @@ O objetivo deste repositório é descrever um padrão de desenvolvimento de cód
 
 O Design Atômico é uma metodologia de desenvolvimento de estilos css onde a estrutura da página ou site é encarada de forma semelhante ao conceito químico de átomos e moléculas. Ou seja, componentes menores como botões por exemplo, são vistos como átomos dentro da página, enquanto items maiores como o rodapé do site, são tratados como organismos.
 
-Dessa forma os elementos mais complexos (páginas) são compostos por unidades menores (templates), até chegarmos nas menores partes da hierarquia (átomos).
+Dessa forma os elementos mais complexos (organismos) são compostos por unidades menores (moléculas), até chegarmos nas menores partes da hierarquia (átomos).
 
 <p style="background-color: #fff; padding: 25px;"><img src="./paginas.png" alt="Design Atômico - Esquema" title="Design Atômico"></p>
 
 ### **Átomos**
-Átomos são as menores partes dentro da estrutura da página. São elementos que devem ser o mais abstratos possíveis, para que posssam se adequar a praticamante qualquer parte do cóodigo em que forem utilizados. Botões, links e logos por exemplo, geralmente tem esse comportamento.
+Átomos são as menores partes dentro da estrutura do layout. São elementos que devem ser o mais abstratos possíveis, para que possam se adequar a praticamante qualquer parte do código em que forem utilizados. Botões, links e logos por exemplo, geralmente tem esse comportamento.
 
 **Exemplo**
 
@@ -125,7 +122,7 @@ t-brand {
 ```
 
 ### **Páginas**
-As páginas são o último nível da hierarquia. Nelas temos estilos que abrangem comportamentos específicos de um determinado layout, uma vez que os demais estilos já foram determinados pelas suas partes.
+As páginas são o último nível da hierarquia. Nelas temos estilos que abrangem comportamentos específicos de um determinado template, uma vez que os demais estilos já foram determinados pelas suas partes.
 
 **Exemplo**
 
@@ -159,10 +156,6 @@ Em casos em que um componente filho (átomo) precisa de ser estilizado segundo o
 <div class="m-holder">
   <button class="a-btn m-holder-btn">Botão 1</button>
 </div>
-
-<div class="m-holder">
-  <button class="a-btn">Botão 2</button>
-</div>
 ```
 
 > CSS
@@ -186,7 +179,11 @@ m-holder-btn {
 
 ```
 
-Com essa prática o Design Atômico se torma mais eficiente, pois regras específicas para um átomo em uma molécula por exemplo, não vão interferir no comportamento do mesmo átomo em outros lugares em que for utilizado. Isso também deve ser adotado para os outros tipos de elementos (moléculas, organismos, templates e páginas).
+Com essa prática o Design Atômico se torma mais eficiente, pois regras específicas para um átomo em uma molécula por exemplo, não vão interferir no comportamento do mesmo átomo em outros lugares em que for utilizado. Isso também deve ser adotado para os outros tipos de elementos (moléculas, organismos, templates e páginas). 
+
+No caso dos átomos, é interessante pensar que regras de posicionamento e espaçamento nesses elementos não é o ideal, uma vez que essas propriedades devem ser definidas pelo contexto em que estiverem insreidos (na molécula nessa situação).
+
+E aqui encontramos uma das principais vantagens de se utilizar esta metodologia. Como os estilos dos seus componentes são escritos pensando em seu comportamento de forma independente do seu contexto, é possível ter uma **reutilização de código** muito alta, melhorando a **produtividade** e **organização** da estrutura de estilos.
 
 
 ### **Átomos Virtuais**
@@ -316,7 +313,9 @@ Quando for necessário criar uma variação de estilos para um determinado eleme
 
 ### **Abreviações**
 
-No desenvolvimento dos estilos dos componentes é interessante maximizar o uso de nomes curtos e abreviações nos seletores CSS, para que dessa maneira a legibilidade e também performance do código sejam aperfeiçoadas. 
+No desenvolvimento dos estilos dos componentes é interessante maximizar o uso de nomes curtos e abreviações nos seletores CSS, para que dessa maneira a legibilidade e também performance do código sejam aperfeiçoadas.
+
+Outro fator muito importante a ser considerado é que os mecanismos de busca na web analisam a proporção código/conteúdo nas páginas. Isso significa que quanto menos código de marcação e estilo a página possuir em relação ao seu conteúdo melhor será o seu posicionamento, características que são implementadas com estas práticas.
 
 **Exemplo**
 
