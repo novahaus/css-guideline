@@ -337,6 +337,64 @@ No desenvolvimento dos estilos dos componentes é interessante maximizar o uso d
 * `hld` por exemplo, pode ser uma abreviação de "holder";
 * Abreviações devem sempre ter 3 caracteres;
 * No caso das abreviações, o ideal é que exista um controle das nomeclaturas.
+
+### **Uso do "&" nos seletores**
+
+O seletor "&" que nos pré-processadores de CSS como SASS e Stylus representa o elemento selecionado anteriormente, não deve ser utilizado frequentemente ou sem uma razão específica.
+
+O propósito de adotar está prática é que quando esse seletor é utilizado da maneira displicente, pode gerar códigos CSS que não entregam as melhores práticas de desenvolvimento. Outro ponto a ser considerado é que a legibilidade do código escrito nos pré-processadores é comprometida, uma vez que, se houver muitos aninhamentos de classes, a identificação do nome real do seletor é dificultada.
+
+Visto isso, os casos a seguir são aqueles em que o uso deste seletor é recomendado, pois o código permance legível e o CSS final é claro e performático.
+
+* Adição de classes modificadoras
+
+**Exemplo**
+
+> HTML
+```
+<div class="m-banner-hld active">
+  /* Content */
+</div>
+```
+
+> CSS
+```
+.m-banner-hld {
+  display: none
+  width: 500px;
+
+  &.active {
+    display: block;
+  }
+}
+```
+
+* Uso de pseudo elementos
+
+> HTML
+```
+<div class="m-banner-hld">
+  /* Content */
+</div>
+```
+
+> CSS
+```
+.m-banner-hld {
+  display: none
+  width: 500px;
+
+  &::before {
+    content: '';
+    display: block;
+    border: 1px solid #f00;
+    height: 20px;
+    width: 20px;
+  }
+}
+```
+
 ---
+
 
 ## Boas práticas
